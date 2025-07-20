@@ -1,202 +1,122 @@
 # Inclusive Skincare Access: A Geo-Demographic Micromarketing Project
 
-This project uses data science, spatial analytics, and micromarketing to identify and prioritize outreach opportunities for inclusive skincare access among **Hispanic women aged 15–44**—a fast-growing, underrepresented demographic in the wellness space.
+This project uses data science, spatial analytics, and micromarketing to identify and prioritize outreach opportunities for **inclusive skincare access** among **Hispanic women aged 15–44**—a fast-growing, underrepresented demographic in the wellness space.
 
-The initiative is built in phases, from high-level geographic targeting to trade area identification, lifestyle segmentation, and expansion modeling. Each phase combines real data with community-centered decision-making to drive impact where it matters most.
+Each phase is grounded in real data and business logic, designed to be scalable, replicable, and community-driven. This project not only empowers equitable access to wellness but also models how brands can achieve **targeted growth** while driving **social impact**.
 
-_Last updated: July 20, 2025_
+---
+
+## 🧠 Why This Matters: Business & Community Value
+
+Micromarketing allows businesses to move beyond generic campaigns and instead connect with **high-need, high-opportunity micro-audiences**. This project shows how skincare and wellness brands can:
+
+- Identify **where real demand exists**, using demographic density and spend potential
+- Serve **culturally aligned messaging** to those most likely to respond
+- Launch **cost-efficient outreach** in geographies that maximize ROI
+- Enable **social good** by making health and beauty more accessible
+
+The outcome? Smarter campaigns, greater consumer trust, and scalable growth rooted in inclusion.
 
 ---
 
 ## 🗂️ Project Workflow Overview
 
-| Phase | Description | Status |
-|-------|-------------|--------|
-| ✅ Phase 1 | State Selection — Based on population concentration and skincare spending | Complete |
-| ✅ Phase 2 | ZIP-to-County Aggregation — Identify top counties in New Mexico | Complete |
-| ✅ Phase 3 | Trade Area Definition — Identify high-potential block groups | Complete |
-| ✅ Phase 4 | Retail Partner Selection & Buyer Estimation | Complete |
-| ✅ Phase 5 | Lifestyle Segmentation — Understand who lives there and how they shop | Complete |
-| ✅ Phase 6 | Expansion Modeling — Locate lookalike trade areas | Complete |
+| Phase | Description | Why It Matters |
+|-------|-------------|----------------|
+| ✅ Phase 1 | **State Selection** | Identify the best state to launch outreach, ensuring demographic and spending alignment |
+| ✅ Phase 2 | **ZIP-to-County Aggregation** | Reveal top counties in target state using population and purchase trends |
+| ✅ Phase 3 | **Trade Area Definition** | Focus on neighborhoods with highest target group concentration |
+| ✅ Phase 4 | **Retail Partner & Buyer Estimation** | Select best store hub to distribute kits and forecast buyer volume |
+| ✅ Phase 5 | **Lifestyle Segmentation** | Understand local attitudes, values, and income to tailor outreach |
+| ✅ Phase 6 | **Scalability Modeling** | Identify lookalike trade areas for regional expansion |
 
 ---
 
 ## 🔧 Tools & Data Sources
 
-- **Alteryx Designer** — For data prep, spatial analytics, enrichment, segmentation
-- **ArcGIS Pro** — For geospatial analysis and trade area visualization
-- **Esri Demographics (2024)** — Age, race, spending, lifestyle segments
-- **U.S. Census / FIPS / ZIP shapefiles**
-- **ParseHub + Yellow Pages** — Web scraping for retail locations
+- **Alteryx Designer** – ETL, formula logic, summarization, spatial joins
+- **ArcGIS Pro** – Mapping, segment layers, buffer zones
+- **Esri Demographics (2024)** – Age, sex, race, consumer spend, lifestyle segments
+- **Census Data** – County and ZIP code boundaries, FIPS, block groups
+- **ParseHub** – Scraping retail data from Yellow Pages
 
 ---
 
-## 📍 Phase 1: State Selection Using Demographic and Spending Data
+## 📍 Phase Highlights
 
-**Goal:** Identify the U.S. state where skincare outreach to Hispanic women aged 15–44 can have the highest impact.
+### Phase 1: State Selection  
+Use demographic filters to shortlist states with both **high Hispanic female density (15–44)** and **strong skincare spending**.
 
-### Alteryx Formulas
-
-- **Raw Count (HISP1545)**  
-  ![](assets/alteryx_formula_sum_hispanic_females_15_44.png)
-
-- **Percent of Population (HISPp1545)**  
-  ![](assets/alteryx_formula_percent_hispanic_females_15_44.png)
+> 🧠 Why: Sets up strategic geographic focus before going local.
 
 ---
 
-### Output: State-Level Summary  
-![](assets/alteryx_output_state_selection_hispanic_spend.png)
+### Phase 2: ZIP ➡ County Aggregation  
+Aggregate enriched ZIP data to county level to see **where outreach can scale** across ZIP clusters.
 
-**New Mexico selected** due to:
-- Highest % of Hispanic females aged 15–44 (10.29%)
-- Strong raw count (219,000+)
-- Moderate but significant skincare spend ($210.74 per household)
+> 🧠 Why: Identifies counties with high outreach efficiency (user density × ZIPs × spend)
 
 ---
 
-## 📍 Phase 2: ZIP-to-County Aggregation
+### Phase 3: Trade Area Identification  
+Create filters based on statistical thresholds (e.g., mean + 1 SD) to define **high-opportunity block groups**.
 
-**Goal:** Identify New Mexico counties with the highest opportunity for outreach.
-
-### Alteryx Workflows  
-![](assets/alteryx_workflow_zipcode_enrichment_and_county_join.png)  
-![](assets/alteryx_summarize_groupby_county_metrics.png)
+> 🧠 Why: Moves targeting from broad county to hyperlocal level.
 
 ---
 
-### Output Table  
-![](assets/zip_level_enrichment_table.png)
+### Phase 4: Retail Partner Evaluation  
+Map 1-mile radius trade areas around beauty stores. Select based on projected **user count, spend**, and **market diversity**.
 
-### County Rankings  
-- **Bernalillo County**: 74,602 women in target group  
-- **Dona Ana County**: Highest % (15.51%)  
-![](assets/alteryx_sort_county_by_usergroup_percentage.png)  
-![](assets/alteryx_sort_counties_by_total_target_group.png)
+> 🧠 Why: Ensures distribution points are viable and aligned with community needs.
 
 ---
 
-## 📍 Phase 3: Trade Area Definition
+### Phase 5: Lifestyle Segmentation  
+Use Esri Tapestry segments to understand **household behavior**, then match future trade areas to top segments (e.g., 7A: Up & Coming Families).
 
-**Goal:** Identify block groups with ≥280 Hispanic females aged 15–44 using Esri & census data.
-
-### Threshold Calculation  
-![](assets/alteryx_profile_statistics_hisp1545_threshold.png)
-
-### Filtered Block Groups  
-![](assets/alteryx_map_and_workflow_filtered_trade_areas.png)
+> 🧠 Why: Informs messaging, outreach channels, and local preferences.
 
 ---
 
-### ZIP Focus Map (87121)  
-![](assets/arcgis_trade_area_map_target_zip_87121.png)  
-![](assets/arcgis_trade_area_map_legend.png)
+### Phase 6: Scalability  
+Scrape nearby locations, enrich with same logic, and rank by segment 7A household count to identify **next trade area**.
+
+> 🧠 Why: Makes project repeatable and ready to expand to similar areas.
 
 ---
 
-## 📍 Phase 4: Retail Partner Selection & Buyer Estimation
+## 🗺️ Screenshots & Workflows
 
-**Goal:** Select best retail hub in ZIP 87121 using spend, reach, and user-group density.
+> 📁 All visuals are available in the `/assets` folder to demonstrate each step visually.
 
-### Workflow & Store Comparison  
-![](assets/alteryx_workflow_beauty_retailer_addresses_87121.png)  
-![](assets/arcgis_trade_area_map_remove_overlap_87121.png)  
-![](assets/alteryx_trade_area_comparison_87121.png)
-
----
-
-### Buyer Estimations  
-- **Total Buyers (based on $1,000/yr spend):**  
-  ![](assets/alteryx_estimate_total_buyers_sunficent.png)
-
-- **Target Group Buyers (Hispanic females 15–44):**  
-  ![](assets/alteryx_estimate_target_group_reach_sunficent.png)
+- Alteryx calculations
+- Map legends
+- Trade area overlays
+- Segment breakdowns
+- Retail partner comparisons
 
 ---
 
-## 📍 Phase 5: Lifestyle Segmentation – Behavioral Targeting
-
-**Goal:** Understand the dominant lifestyle segments in our best-performing trade area.
-
-### Map: Esri Tapestry Segments  
-![](assets/arcgis_tapestry_segments_trade_area_sunficent.png)
-
-### Alteryx Workflow  
-![](assets/alteryx_workflow_enriched_trade_area_segmentation.png)
-
----
-
-### Segment Breakdown
-
-| Segment | Households | % of Total |
-|---------|------------|------------|
-| 7A: Up and Coming Families | 3,178 | 43.4% |
-| 8C: Bright Young Professionals | 1,080 | 14.8% |
-| 4A: Workday Drive | 1,077 | 14.7% |
-| 4B: Home Improvement | 718 | 9.8% |
-| 8E: Front Porch | 512 | 7.0% |
-| 11C: Metro Fusion | 558 | 7.6% |
-
-![](assets/alteryx_tapestry_segmentation_output_sunficent.png)  
-![](assets/alteryx_tapestry_segmentation_percentages_sunficent.png)
-
----
-
-### Segment Profile: 7A – Up and Coming Families
-
-![](assets/tapestry_7A_summary_traits.png)  
-![](assets/tapestry_7A_demographics_spending.png)  
-![](assets/tapestry_7A_market_profile_indices.png)
-
----
-
-## 📍 Phase 6: Expansion Modeling – Identifying Lookalike Trade Areas
-
-**Goal:** Identify new skincare retail sites in nearby ZIPs that also attract high-density 7A populations.
-
----
-
-### Step 1: Scrape Nearby Cosmetic Stores
-
-![](assets/parsehub_scrape_yellowpages_cosmetics_87120.png)
-
-> Extracted skincare/cosmetic stores near ZIP 87120 using ParseHub + Yellow Pages for trade area testing.
-
----
-
-### Step 2: Clean and Parse Address Data
-
-![](assets/alteryx_cleaning_scraped_addresses_87120.png)
-
----
-
-### Step 3: Trade Area Evaluation by 7A Households
-
-![](assets/alteryx_trade_area_comparison_7A_expansion.png)
-
-> **Top Expansion Site: Paseo del Norte NW**  
-> - 1,369 households in 7A (81.54%)  
-> - Higher concentration than Sunficent LLC (833, 38.37%)  
-> - Old Coors Dr SW less promising (30 households, 2.48%)
-
----
-
-## 💬 Final Thoughts
+## 📣 Final Thoughts
 
 This project models how micromarketing + spatial analysis can power **inclusive wellness outreach** using real demographic and consumer behavior data.
+
+Every step—from macro targeting to lifestyle analysis—is grounded in market logic, ensuring brands not only grow but **grow responsibly**.
 
 The final phase will explore **campaign modeling and impact estimation** for each selected area.
 
 ---
 
-## 👤 Author
+## 👩‍💼 Author
 
 **Pratiksha Gund**  
 📍 Data Analyst | Micromarketing Researcher  
-🔗 [LinkedIn](https://www.linkedin.com/in/pratiksha-gund/) | 🌐 [Portfolio]() | 📧 [Email](mailto:pratikshagund10@gmail.com)
+🔗 [LinkedIn](https://www.linkedin.com/in/pratiksha-gund/) | 🌐 [Portfolio] | ✉️ [pratikshagund10@gmail.com](mailto:pratikshagund10@gmail.com)
 
 ---
 
 ## 🏷 Tags
 
-#Micromarketing #GIS #RetailAnalytics #Alteryx #ArcGIS #DataForGood #ConsumerInsights #InclusiveSkincare #BehavioralTargeting #TradeAreaModeling
+#Micromarketing #GIS #RetailAnalytics #Alteryx #ArcGIS #DataForGood  
+#ConsumerInsights #InclusiveSkincare #BehavioralTargeting #TradeAreaModeling
