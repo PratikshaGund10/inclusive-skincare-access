@@ -193,7 +193,7 @@ The final phase will explore **campaign modeling and impact estimation** for eac
 
 **Pratiksha Gund**  
 📍 Data Analyst | Micromarketing Researcher  
-🔗 [LinkedIn] (https://www.linkedin.com/in/pratiksha-gund/) | 🌐 [Portfolio] | ✉️ [Email] (pratikshagund10@gmail.com)
+🔗 [LinkedIn](https://www.linkedin.com/in/pratiksha-gund/) | 🌐 [Portfolio]() | 📧 [Email](mailto:pratikshagund10@gmail.com)
 
 ---
 
