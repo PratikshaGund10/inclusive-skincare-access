@@ -10,12 +10,12 @@ Each phase is grounded in real data and business logic, designed to be scalable,
 
 | Phase | Description | Why It Matters |
 |-------|-------------|----------------|
-| ✅ Phase 1 | State Selection | Identify the best state to launch outreach, ensuring demographic and spending alignment |
-| ✅ Phase 2 | ZIP-to-County Aggregation | Reveal top counties in target state using population and purchase trends |
-| ✅ Phase 3 | Trade Area Definition | Focus on neighborhoods with highest target group concentration |
-| ✅ Phase 4 | Retail Partner & Buyer Estimation | Select best store hub to distribute kits and forecast buyer volume |
-| ✅ Phase 5 | Lifestyle Segmentation | Understand local attitudes, values, and income to tailor outreach |
-| ✅ Phase 6 | Scalability Modeling | Identify lookalike trade areas for regional expansion |
+| Phase 1 | State Selection | Identify the best state to launch outreach, ensuring demographic and spending alignment |
+| Phase 2 | ZIP-to-County Aggregation | Reveal top counties in target state using population and purchase trends |
+| Phase 3 | Trade Area Definition | Focus on neighborhoods with highest target group concentration |
+| Phase 4 | Retail Partner & Buyer Estimation | Select best store hub to distribute kits and forecast buyer volume |
+| Phase 5 | Lifestyle Segmentation | Understand local attitudes, values, and income to tailor outreach |
+| Phase 6 | Scalability Modeling | Identify lookalike trade areas for regional expansion |
 
 ---
 
